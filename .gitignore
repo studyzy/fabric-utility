@@ -15,5 +15,5 @@
 # vendor/
 .idea/
 
-evidencecc
-evidenceapi
+evidencecc/evidencecc
+apiserver/apiserver
