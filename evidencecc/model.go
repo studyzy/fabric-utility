@@ -6,6 +6,7 @@ type DataEvidence struct{
 	DataValue string  `json:"dataValue"`
 	Reference string  `json:"reference"`
 	Timestamp int64  `json:"timestamp"`
+	DocType string `json:"docType"`
 }
 type ObjectEvidence struct{
 	Owner string  `json:"owner"`
@@ -14,4 +15,6 @@ type ObjectEvidence struct{
 	Object map[string]interface{}  `json:"object"`
 	Reference string  `json:"reference"`
 	Timestamp int64  `json:"timestamp"`
+	DocType string `json:"docType"`
+
 }

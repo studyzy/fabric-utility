@@ -35,25 +35,14 @@ func createDataEvidence(stub shim.ChaincodeStubInterface, category,owner,dataKey
 
 	return []byte(fmt.Sprintf("%d",t.Seconds)),nil
 }
-func createObjectEvidence(stub shim.ChaincodeStubInterface, category,owner,dataKey,objectJson,reference string) ([]byte,error) {
+func createDataShare(stub shim.ChaincodeStubInterface, dataShare *DataShare) ([]byte,error) {
 	t,err:=stub.GetTxTimestamp()
 	if err != nil{
 		return nil,err
 	}
-	obj:=make(map[string]interface{})
-	err=json.Unmarshal([]byte(objectJson),&obj)
-	if err != nil{
-		return nil,err
-	}
-	evidence:=&ObjectEvidence{
-		Owner:     owner,
-		Category:  category,
-		ObjectKey:   dataKey,
-		Object: obj,
-		Reference: reference,
-		Timestamp: t.Seconds,
-	}
-	key:=fmt.Sprintf("O_%s_%s",category,dataKey)
+	dataShare.DocType="DataShare"
+	dataShare.Timestamp=t.Seconds
+	key:=fmt.Sprintf("DS_%s_%s",dataShare.,dataKey)
 
 	bytes, err := json.Marshal(evidence)
 	if err != nil{

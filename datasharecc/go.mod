@@ -1,4 +1,4 @@
-module github.com/studyzy/fabric-utility/evidencecc
+module github.com/studyzy/fabric-utility/datasharecc
 
 go 1.15
 
